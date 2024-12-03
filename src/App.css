@@ -3,6 +3,7 @@
 }
 
 .App-header {
+    position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -12,21 +13,80 @@
     color: white;
 }
 
-button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
+.social-bar {
+    top: 25px;
+    left: 15px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 10px;
+}
+
+.tool-bar {
+    top: 25px;
+    right: 15px;
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    align-items: end;
+    justify-content: start;
+    gap: 10px;
+}
+
+@media (max-width: 600px) {
+    .tool-bar {
+        top: 25px;
+        right: 25px;
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        align-items: end;
+        justify-content: start;
+        gap: 10px;
+    }
+}
+
+.tab {
+    background-color: #00C08D;
+    color: white;
+    padding: 8px 15px; /* Add padding for better spacing */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: calc(5px + 2vmin);
+    text-align: center; /* Center text inside each tab */
     cursor: pointer;
 }
 
+.tab.active {
+    background-color: #ffffff; /* Different color for active tab */
+    color: #00C08D;
+    font-weight: bold;
+}
+
+.image-button {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 15px;
+    border-color: #00C08D;
+    border-width: 2px;
+    background-size: cover;
+}
+
 button:hover {
-    background-color: #61dafb;
-    color: black;
+    background-color: #00C08D;
+    color: white;
 }
 
 .circular-image {
-    width: 150px;
-    height: 150px;
+    width: calc(25px + 25vmin);
+    height: calc(25px + 25vmin);
     border-radius: 50%;
-    object-fit: cover;
+    border-color: #00C08D;
+    border-width: 100px;
+    background-size: cover;
+    background-color: transparent;
 }

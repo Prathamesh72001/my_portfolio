@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "ajv": "^8.17.1",
+    "cheerio": "^1.0.0",
     "express": "^4.21.1",
     "my_portfolio": "file:",
     "open": "^10.1.0",
