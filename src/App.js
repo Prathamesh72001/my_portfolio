@@ -4,10 +4,32 @@ import { Worker, Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 const cheerio = require('cheerio');
+import { Drawer, List, ListItem, ListItemText, IconButton } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 
 function App() {
     const [activeTab, setActiveTab] = useState("tab1");
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+
+        // Add event listener
+        window.addEventListener("resize", handleResize);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const toggleDrawer = (open) => () => {
+        setIsDrawerOpen(open);
+    };
 
     const openLink = (url) => {
         window.open(url, "_blank"); // Opens in a new tab
@@ -22,7 +44,40 @@ function App() {
     return (
         <div className="App" style={{ backgroundColor: 'transparent' }}>
             <header className="App-header">
-                <div className="tool-bar">
+                {screenWidth < 700 && <div style={{
+                    top: "5px",
+                    right: "25px",
+                    display: "flex",
+                    position: "absolute"
+                }}>
+                    {/* Button to Open Drawer */}
+                    <IconButton style={{ color: "#00C08D" }} onClick={toggleDrawer(true)} edge="start">
+                        <MenuIcon />
+                    </IconButton>
+
+                    {/* Drawer */}
+                    <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer(false)}>
+                        <List>
+                            <ListItem button onClick={() =>
+                                setActiveTab("tab1")} className={`menu-item ${activeTab === "tab1" ? "active" : ""}`}>
+                                <ListItemText primary="Home" />
+                            </ListItem>
+                            <ListItem button onClick={() =>
+                                setActiveTab("tab2")} className={`menu-item ${activeTab === "tab2" ? "active" : ""}`}>
+                                <ListItemText primary="About" />
+                            </ListItem>
+                            <ListItem button onClick={() =>
+                                setActiveTab("tab3")} className={`menu-item ${activeTab === "tab3" ? "active" : ""}`}>
+                                <ListItemText primary="Experience" />
+                            </ListItem>
+                            <ListItem button onClick={() =>
+                                setActiveTab("tab4")} className={`menu-item ${activeTab === "tab4" ? "active" : ""}`}>
+                                <ListItemText primary="Resume" />
+                            </ListItem>
+                        </List>
+                    </Drawer>
+                </div>}
+                {screenWidth >= 700 && <div className="tool-bar">
                     <div
                         className={`tab ${activeTab === "tab1" ? "active" : ""}`}
                         onClick={() =>
@@ -49,7 +104,7 @@ function App() {
                     >
                         Resume
                     </div>
-                </div>
+                </div>}
                 <div className="social-bar">
                     <img
                         src='https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7'

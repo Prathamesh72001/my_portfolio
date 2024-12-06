@@ -55,7 +55,6 @@
     /* Add padding for better spacing */
     border-radius: 5px;
     /* Rounded corners */
-    cursor: pointer;
     font-family: Arial, sans-serif;
     font-size: calc(5px + 2vmin);
     text-align: center;
@@ -68,6 +67,30 @@
     /* Different color for active tab */
     color: #00C08D;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-item.active {
+    background-color: #00C08D;
+    color: white;
+    padding: 8px 15px;
+    /* Add padding for better spacing */
+    border-radius: 5px;
+    /* Rounded corners */
+    font-family: Arial, sans-serif;
+    font-size: calc(5px + 2vmin);
+    text-align: center;
+    /* Center text inside each tab */
+    cursor: pointer;
+}
+
+.menu-item {
+    background-color: #ffffff;
+    /* Different color for active tab */
+    color: #00C08D;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
 }
 
 .image-button {
