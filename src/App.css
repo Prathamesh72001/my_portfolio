@@ -14,8 +14,8 @@
 }
 
 .social-bar {
-    top: 25px;
-    left: 15px;
+    top: 5px;
+    left: 5px;
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -25,8 +25,8 @@
 }
 
 .tool-bar {
-    top: 25px;
-    right: 15px;
+    top: 5px;
+    right: 25px;
     display: flex;
     position: absolute;
     flex-direction: row;
@@ -35,9 +35,9 @@
     gap: 10px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
     .tool-bar {
-        top: 25px;
+        top: 5px;
         right: 25px;
         display: flex;
         position: absolute;
@@ -51,17 +51,21 @@
 .tab {
     background-color: #00C08D;
     color: white;
-    padding: 8px 15px; /* Add padding for better spacing */
-    border-radius: 5px; /* Rounded corners */
+    padding: 8px 15px;
+    /* Add padding for better spacing */
+    border-radius: 5px;
+    /* Rounded corners */
     cursor: pointer;
     font-family: Arial, sans-serif;
     font-size: calc(5px + 2vmin);
-    text-align: center; /* Center text inside each tab */
+    text-align: center;
+    /* Center text inside each tab */
     cursor: pointer;
 }
 
 .tab.active {
-    background-color: #ffffff; /* Different color for active tab */
+    background-color: #ffffff;
+    /* Different color for active tab */
     color: #00C08D;
     font-weight: bold;
 }
@@ -69,6 +73,16 @@
 .image-button {
     width: 35px;
     height: 35px;
+    cursor: pointer;
+    border-radius: 15px;
+    border-color: #00C08D;
+    border-width: 2px;
+    background-size: cover;
+}
+
+.image-card {
+    width: calc(15px + 15vmin);
+    height: calc(15px + 15vmin);
     cursor: pointer;
     border-radius: 15px;
     border-color: #00C08D;
@@ -89,4 +103,132 @@ button:hover {
     border-width: 100px;
     background-size: cover;
     background-color: transparent;
+}
+
+.padded-span {
+    width: calc(100px + 100vmin);
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    padding-top: 5px;
+    color: #ffffff;
+    font-family: RM Typerighter old;
+    font-size: medium;
+}
+
+@media (max-width: 700px) {
+    .padded-span {
+        width: calc(60px + 60vmin);
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+        padding-top: 5px;
+        color: #ffffff;
+        font-family: RM Typerighter old;
+        font-size: small;
+    }
+}
+
+/* Grid container */
+.grid-container {
+    display: grid;
+    gap: 20px;
+    padding: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    /* 3 cards per row by default */
+}
+
+/* Responsive for screens below 700px */
+@media (max-width: 700px) {
+    .grid-container {
+        display: grid;
+        gap: 20px;
+        padding: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cards per row */
+    }
+}
+
+/* Individual card styling */
+.grid-card {
+    position: relative;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Set a fixed height for the card */
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Hover effect for scaling the card */
+.grid-card:hover {
+    transform: scale(1.1);
+    /* Make the card bigger */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+@media (max-width: 700px) {
+    .card-image {
+        width: calc(20px + 20vmin);
+        height: calc(12px + 12vmin);
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+    }
+}
+
+.card-image {
+    width: calc(50px + 50vmin);
+    height: calc(30px + 30vmin);
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+/* Text inside the card */
+.card-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent background */
+    padding: 5px 10px;
+    border-radius: 4px;
+    opacity: 0;
+    /* Initially hidden */
+    transition: opacity 0.3s ease;
+}
+
+/* On hover: show text and keep image visible */
+.grid-card:hover .card-text {
+    opacity: 1;
+}
+
+.grid-card:hover .card-image {
+    opacity: 1;
+    /* Ensure image remains fully visible */
+}
+
+.scrollable-container {
+    height: 80vh;
+    /* Set a fixed height for the scrollable area */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }

@@ -1,26 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { Worker, Viewer } from '@react-pdf-viewer/core';
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 const cheerio = require('cheerio');
 
 
 function App() {
     const [activeTab, setActiveTab] = useState("tab1");
+
     const openLink = (url) => {
         window.open(url, "_blank"); // Opens in a new tab
     };
+
+    const cards = [
+        { id: 1, title: 'Card 1', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
+        { id: 2, title: 'Card 2', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
+        { id: 3, title: 'Card 3', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
+        { id: 4, title: 'Card 4', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
+        { id: 5, title: 'Card 5', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
+        { id: 6, title: 'Card 6', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
+    ];
+
     return (
         <div className="App" style={{ backgroundColor: 'transparent' }}>
             <header className="App-header">
                 <div className="tool-bar">
                     <div
                         className={`tab ${activeTab === "tab1" ? "active" : ""}`}
-                        onClick={() => setActiveTab("tab1")}
+                        onClick={() =>
+                            setActiveTab("tab1")}
                     >
                         Home
                     </div>
                     <div
                         className={`tab ${activeTab === "tab2" ? "active" : ""}`}
-                        onClick={() => setActiveTab("tab2")}
+                        onClick={() =>
+                            setActiveTab("tab2")}
                     >
                         About
                     </div>
@@ -33,12 +49,6 @@ function App() {
                     <div
                         className={`tab ${activeTab === "tab4" ? "active" : ""}`}
                         onClick={() => setActiveTab("tab4")}
-                    >
-                        Contact
-                    </div>
-                    <div
-                        className={`tab ${activeTab === "tab5" ? "active" : ""}`}
-                        onClick={() => setActiveTab("tab5")}
                     >
                         Resume
                     </div>
@@ -75,21 +85,40 @@ function App() {
                         onClick={() => openLink("https://wa.link/aiezfi")}
                     />
                 </div>
-                <img
+                {(activeTab == "tab1" || activeTab == "tab2" || activeTab == "tab3") ? (<img
                     className='circular-image'
-                    src='https://th.bing.com/th/id/OIP.zc3XRPZxUt4Xt7zDZYLa_wHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.5&pid=1.7'
-                ></img>
-                <br />
-                <span style={{ color: "#ffffff", fontFamily: "Arial", marginLeft: 25, marginRight: 25, fontSize: 20 }}>Hello I'm</span>
-                <span style={{ color: "#00C08D", fontFamily: "Arial", fontSize: 35, marginLeft: 25, marginRight: 25 }}>Prathamesh Sawardekar</span>
+                    src='https://cdn5.telesco.pe/file/LiNCL_bbTQDVnTGHkM9ZpcB6wvlSwzG47qv3WjfEehmjZO9qxRETVvTcAQPoKbK6xygBAz8lKY2cgTT9-ZC3QIYtbZ8LKyt3D3MUslW4yJe9QM3uwZX_dqTM98OHtxBjfpxdInwURLwG_sUqY9wL7iS3zoA415IlbX8jF-jlEePPxHtpO1YDtYSGBbSzwgEAFdR4nDKiKPocEZ2uT4ALu5NqujdH3KYseW43d_vnSIW41DpuBfQdHW9Y-D5PuJdBkh6hyJocZEag67wH9FSyP7bveikx3uHGX_U9ma6cVxRCfmHCOT0rEihQh93K1TSAHIBycjOhsmvaMEyd71ZgoQ.jpg'
+                ></img>):null}
+                {activeTab == "tab3" && <span style={{ color: "#00C08D", fontFamily: "Arial", fontSize: "35px", marginLeft: "25px", marginRight: "25px" }}>Experience</span>}
+                {activeTab == "tab4" && <span style={{ color: "#00C08D", fontFamily: "Arial", fontSize: "35px", marginLeft: "25px", marginRight: "25px" }}>Resume</span>}
+                {(activeTab == "tab1" || activeTab == "tab2") ? (<span style={{ color: "#ffffff", fontFamily: "Arial", marginLeft: "25px", marginRight: "25px", fontSize: "20px" }}>Hello I'm</span>) : null}
+                {(activeTab == "tab1" || activeTab == "tab2") ? (<span style={{ color: "#00C08D", fontFamily: "Arial", fontSize: "35px", marginLeft: "25px", marginRight: "25px" }}>Prathamesh Sawardekar</span>) : null}
 
-                <TypingAnimation text="  Welcome to My Portfolioo  " speed={100} />
+                {activeTab == "tab1" && <TypingAnimation text="  Welcome to My Portfolioo  " speed={100} isInLoop={true} />}
+                {activeTab == "tab2" && <TypingAnimation text="  I am an Android/Flutter developer with over 2.5 years of professional experience, specializing in building efficient and user-centric applications. My expertise includes developing cross-platform apps using Flutter, ensuring seamless performance and high-quality UI/UX. Alongside mobile development, I have experience with backend technologies like Node.js, frontend frameworks like React, and cloud platforms such as AWS. I am proficient in tools like Firebase for real-time database and authentication, and FlutterFlow for rapid prototyping. My technical skill set allows me to deliver scalable solutions and contribute effectively to end-to-end app development processes.  "
+                    speed={10} isInLoop={false} />}
+                {activeTab == "tab3" && <div className="scrollable-container">
+                    <div className="grid-container">
+                        {cards.map((card) => (
+                            <div key={card.id} className="grid-card">
+                                <img src={card.image} alt={card.title} className="card-image" />
+                                <div className="card-text">{card.title}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                }
+                {activeTab == "tab4" && <div>
+                    <Worker workerUrl={`https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js`}>
+                        <Viewer fileUrl="https://pdflink.to/1e150c0f/" />
+                    </Worker>
+                </div>}
             </header>
         </div>
     );
 }
 
-const TypingAnimation = ({ text, speed }) => {
+const TypingAnimation = ({ text, speed, isInLoop }) => {
     const [displayedText, setDisplayedText] = useState("");
     const [isTyping, setIsTyping] = useState(true);
 
@@ -102,13 +131,15 @@ const TypingAnimation = ({ text, speed }) => {
                 setDisplayedText((prev) => prev + text[currentIndex]);
                 currentIndex++;
             } else {
-                clearInterval(interval);
-                setTimeout(() => {
-                    // Clear the text and restart typing animation after a short delay
-                    setDisplayedText("");
-                    currentIndex = 0;
-                    interval = setInterval(typeText, speed);
-                }, 3000); // Pause for 1 second before restarting
+                if (isInLoop) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        // Clear the text and restart typing animation after a short delay
+                        setDisplayedText("");
+                        currentIndex = 0;
+                        interval = setInterval(typeText, speed);
+                    }, 3000); // Pause for 1 second before restarting
+                }
             }
         };
 
@@ -119,7 +150,7 @@ const TypingAnimation = ({ text, speed }) => {
         return () => clearInterval(interval); // Clean up the interval on component unmount
     }, [text, speed, isTyping]);
 
-    return <span style={{ color: "#ffffff", fontFamily: "RM Typerighter old", marginLeft: 25, marginRight: 25, marginTop: 25, fontSize: 15, fontFamily: "" }}>{displayedText}</span>;
+    return <div className='padded-span'><span>{displayedText}</span></div>;
 };
 
 export default App;
