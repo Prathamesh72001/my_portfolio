@@ -153,9 +153,9 @@ button:hover {
 .grid-card {
     position: relative;
     overflow: hidden;
-    background-color: #f5f5f5;
+    background-color: transparent;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     justify-content: center;
@@ -176,16 +176,18 @@ button:hover {
 @media (max-width: 700px) {
     .card-image {
         width: calc(20px + 20vmin);
-        height: calc(12px + 12vmin);
+        height: calc(10px + 10vmin);
         object-fit: cover;
+        border-radius: 500px;
         transition: opacity 0.3s ease;
     }
 }
 
 .card-image {
     width: calc(50px + 50vmin);
-    height: calc(30px + 30vmin);
+    height: calc(40px + 40vmin);
     object-fit: cover;
+    border-radius: 500px;
     transition: opacity 0.3s ease;
 }
 
@@ -195,7 +197,7 @@ button:hover {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     color: #fff;
     background: rgba(0, 0, 0, 0.6);
@@ -218,7 +220,7 @@ button:hover {
 }
 
 .scrollable-container {
-    height: 80vh;
+    height: 50vh;
     /* Set a fixed height for the scrollable area */
     overflow-y: auto;
     /* Enable vertical scrolling */
@@ -227,7 +229,7 @@ button:hover {
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 500px;
     display: flex;
     justify-content: center;
     align-items: flex-start;

@@ -14,12 +14,9 @@ function App() {
     };
 
     const cards = [
-        { id: 1, title: 'Card 1', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
-        { id: 2, title: 'Card 2', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
-        { id: 3, title: 'Card 3', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
-        { id: 4, title: 'Card 4', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
-        { id: 5, title: 'Card 5', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
-        { id: 6, title: 'Card 6', description: "Description", image: "https://th.bing.com/th/id/OIP.k6lUqaSsHH2O9icUX0f_DQHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" },
+        { id: 1, title: 'iTAP Entertainment & Gaming', link: "https://play.google.com/store/apps/details?id=com.app.itap&pcampaignid=web_share", image: "https://play-lh.googleusercontent.com/WGGw9sdmGBhWqfhDO54FiSmA__6jR8Cft-M9jutBzzprcMYakmWNANT2HMelsc459A=w480-h960-rw" },
+        { id: 2, title: 'Canvia: Art Gallery at home', link: "https://play.google.com/store/apps/details?id=com.palacio.canvia&pcampaignid=web_share", image: "https://play-lh.googleusercontent.com/Ztrvf9znaktVCS6J36tPPJI73RC-Sc-FCBQFZ3Hw6u7-DE_rPv-DOi47NP3a4Jqm7Q=w480-h960-rw" },
+        { id: 3, title: 'Insta Parenting App: Play-Way', link: "https://play.google.com/store/apps/details?id=com.parenting.instaparenting&pcampaignid=web_share", image: "https://play-lh.googleusercontent.com/KyP59LujVr_v9ZwKQVkfwkb4rCaamItgxxPdsIvApYOXvupWQYYjEFEBwQMDK5JlkADJ=w480-h960-rw" }
     ];
 
     return (
@@ -88,7 +85,7 @@ function App() {
                 {(activeTab == "tab1" || activeTab == "tab2" || activeTab == "tab3") ? (<img
                     className='circular-image'
                     src='https://cdn5.telesco.pe/file/LiNCL_bbTQDVnTGHkM9ZpcB6wvlSwzG47qv3WjfEehmjZO9qxRETVvTcAQPoKbK6xygBAz8lKY2cgTT9-ZC3QIYtbZ8LKyt3D3MUslW4yJe9QM3uwZX_dqTM98OHtxBjfpxdInwURLwG_sUqY9wL7iS3zoA415IlbX8jF-jlEePPxHtpO1YDtYSGBbSzwgEAFdR4nDKiKPocEZ2uT4ALu5NqujdH3KYseW43d_vnSIW41DpuBfQdHW9Y-D5PuJdBkh6hyJocZEag67wH9FSyP7bveikx3uHGX_U9ma6cVxRCfmHCOT0rEihQh93K1TSAHIBycjOhsmvaMEyd71ZgoQ.jpg'
-                ></img>):null}
+                ></img>) : null}
                 {activeTab == "tab3" && <span style={{ color: "#00C08D", fontFamily: "Arial", fontSize: "35px", marginLeft: "25px", marginRight: "25px" }}>Experience</span>}
                 {activeTab == "tab4" && <span style={{ color: "#00C08D", fontFamily: "Arial", fontSize: "35px", marginLeft: "25px", marginRight: "25px" }}>Resume</span>}
                 {(activeTab == "tab1" || activeTab == "tab2") ? (<span style={{ color: "#ffffff", fontFamily: "Arial", marginLeft: "25px", marginRight: "25px", fontSize: "20px" }}>Hello I'm</span>) : null}
@@ -100,7 +97,8 @@ function App() {
                 {activeTab == "tab3" && <div className="scrollable-container">
                     <div className="grid-container">
                         {cards.map((card) => (
-                            <div key={card.id} className="grid-card">
+                            <div key={card.id} className="grid-card" onClick={() => openLink(card.link)}
+                            >
                                 <img src={card.image} alt={card.title} className="card-image" />
                                 <div className="card-text">{card.title}</div>
                             </div>
@@ -109,9 +107,7 @@ function App() {
                 </div>
                 }
                 {activeTab == "tab4" && <div>
-                    <Worker workerUrl={`https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js`}>
-                        <Viewer fileUrl="https://pdflink.to/1e150c0f/" />
-                    </Worker>
+                    <iframe src="https://drive.google.com/file/d/1-pTkwNKlS99HdnaqweUa4cSsnv0V_o4_/preview" style={{ height: "75vh", width: "100%" }}></iframe>
                 </div>}
             </header>
         </div>
