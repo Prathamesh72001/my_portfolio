@@ -119,6 +119,7 @@ button:hover {
 }
 
 .circular-image {
+    margin-bottom: 25px;
     width: calc(25px + 25vmin);
     height: calc(25px + 25vmin);
     border-radius: 50%;
@@ -176,7 +177,7 @@ button:hover {
 .grid-card {
     position: relative;
     overflow: hidden;
-    background-color: transparent;
+    background-color: #00C08D;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -200,7 +201,7 @@ button:hover {
     .card-image {
         width: calc(20px + 20vmin);
         height: calc(10px + 10vmin);
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 500px;
         transition: opacity 0.3s ease;
     }
@@ -209,7 +210,7 @@ button:hover {
 .card-image {
     width: calc(50px + 50vmin);
     height: calc(40px + 40vmin);
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 500px;
     transition: opacity 0.3s ease;
 }
@@ -218,14 +219,14 @@ button:hover {
 .card-text {
     position: absolute;
     bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
     font-size: 14px;
     font-weight: bold;
     color: #fff;
     background: rgba(0, 0, 0, 0.6);
     /* Semi-transparent background */
     padding: 5px 10px;
+    margin: 5px 10px;
     border-radius: 4px;
     opacity: 0;
     /* Initially hidden */

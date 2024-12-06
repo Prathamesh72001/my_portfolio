@@ -139,7 +139,7 @@ function App() {
                 </div>
                 {(activeTab == "tab1" || activeTab == "tab2" || activeTab == "tab3") ? (<img
                     className='circular-image'
-                    src='https://cdn5.telesco.pe/file/LiNCL_bbTQDVnTGHkM9ZpcB6wvlSwzG47qv3WjfEehmjZO9qxRETVvTcAQPoKbK6xygBAz8lKY2cgTT9-ZC3QIYtbZ8LKyt3D3MUslW4yJe9QM3uwZX_dqTM98OHtxBjfpxdInwURLwG_sUqY9wL7iS3zoA415IlbX8jF-jlEePPxHtpO1YDtYSGBbSzwgEAFdR4nDKiKPocEZ2uT4ALu5NqujdH3KYseW43d_vnSIW41DpuBfQdHW9Y-D5PuJdBkh6hyJocZEag67wH9FSyP7bveikx3uHGX_U9ma6cVxRCfmHCOT0rEihQh93K1TSAHIBycjOhsmvaMEyd71ZgoQ.jpg'
+                    src='https://cdn5.telesco.pe/file/XDIU5165MDif4cfH6It3kdkDdWl7KRTrTWC0paUvmgoXWlhFXAYikqURYkUhKg_ShXzHMrb-Rds2PLE3ns2J62Uc9XpLcWvM0OCtXrsw3wMfvP4p1dQ1I5l9MPF2IC09DuABA8QTawrr61NCI9snWIx2mSXhxpCqljcJtrtwINymbAoIO10-LEqNQOr3ny-Fap1Ovvr1M_WRNCTQNaUCjDPkc3f2tU9UTW55JPwW6rf-05t8Cs7eDWm0my6tMia-3EG9U4FXDnDSSUmD0SxSf2-kC_pVod5CrvDtQNu0JjBoY9J_KQUfkTuO3ENKgsb9d3d-cltn6Iyjjft0674cDg.jpg'
                 ></img>) : null}
                 {activeTab == "tab3" && <span style={{ color: "#00C08D", fontFamily: "Arial", fontSize: "35px", marginLeft: "25px", marginRight: "25px" }}>Experience</span>}
                 {activeTab == "tab4" && <span style={{ color: "#00C08D", fontFamily: "Arial", fontSize: "35px", marginLeft: "25px", marginRight: "25px" }}>Resume</span>}
